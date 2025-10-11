@@ -334,7 +334,8 @@ p.lead { font-size: 18px; color: #333; margin-bottom: 28px; }
 /* Shimmer effect (optional) */
 .hero-title.shimmer {
   background: linear-gradient(90deg, #d4af37, #ffdc73, #d4af37);
-  background-size: 200% auto;
+    letter-spacing: 1.5px;
+  text-transform: uppercase;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 3s linear infinite;
@@ -542,11 +543,7 @@ footer {
   color: #111;                     /* text color */
   margin-bottom: 30px;             /* spacing from gallery */
 }
-.hero-title.shimmer{
 
-
-
-}
 .work-container h1 {
   font-size: 2rem;               /* large and impactful */
   font-weight: 400;              /* extra bold */
@@ -1257,19 +1254,16 @@ a:hover {
 
 @media only screen and (max-width: 767px) {
   .hero-title {
-    display: block;
-    margin-top: 28px; /* adds space above the text */
-    text-align: center;
-    font-size: 2.1rem;
-    letter-spacing: 1px;
-    line-height: 1.2;
-  }
+
 }
 
 @media only screen and (max-width: 767px) {
-  .hero-title.shimmer{
+  .tle.shimmer{
+
+}@media only screen and (max-width: 767px) {
+  .hero-title {
     display: block;
-    margin-top: 32px; /* adds space above the text */
+    margin-top: 28px; /* adds space above the text */
     text-align: center;
     font-size: 2.1rem;
     letter-spacing: 1px;
