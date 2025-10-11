@@ -1245,3 +1245,16 @@ a:hover {
     display: none;
   }
 }
+@media only screen and (max-width: 767px) {
+  .hero-title-work {
+    display: none;
+  }
+}@media only screen and (max-width: 767px) {
+  .work-hero-title {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {.hero-title.shimmer{
+  margin-top: 20px;
+}
