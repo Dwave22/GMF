@@ -1256,7 +1256,7 @@ a:hover {
 }
 
 @media only screen and (max-width: 767px) {.hero-title.shimmer{
-  margin-top: 20px;
+  margin-bottom: 200px;
 }
 
 /* ======================================= */
