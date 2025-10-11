@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Golden Moment Films ©</title>
+  <meta name="description" content="Cinematic weddings and events filmed by Golden Moment Films" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+<header>
+  <div class="brand">
+    <div class="logo">
+      <img src="logo.png" alt="Golden Moment Films Logo">
+    </div>
+    <div class="brand-text">
+      <h1 class="hero-title shimmer">Golden Moment Films</h1>
+    </div>
+  </div>
+
+
+  <!-- Mobile hamburger -->
+  <button class="menu-toggle" aria-label="Open Menu">☰</button>
+
+  <!-- Main nav (used for both desktop and mobile dropdown) -->
+  <nav class="nav-links" id="mainNav">
+    <!-- mobile-only close button (hidden on desktop) -->
+    <button class="nav-close" aria-label="Close Menu">✕</button>
+
+    <a href="index.html">Home</a>
+    <a href="work.html" class="active">Gallery </a>
+    <a href="#services">Services</a>
+    <a href="tel:+447539826097" class="btn btn-primary">Call us</a>
+  </nav>
+
+  <!-- Dark overlay behind mobile menu -->
+  <div class="overlay" aria-hidden="true"></div>
+</header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h2>We transform your moments into cinematic stories</h2>
+        <p class="lead">
+          Whether it's a wedding, documentary, or commercial — we craft emotive films with a timeless, golden moment and experience thats unforgettable.
+        </p>
+
+        <div class="cta-row">
+          <a href="work.html" class="btn btn-primary">View Our Work</a>
+          <a href="mailto:Surajdigwa1985@gmail.com?subject=Quote%20Request%20from%20Website" class="btn btn-ghost">Get a Quote</a>
+        </div>
+
+        <div class="features" aria-hidden="true">
+          <div class="feature">
+            <h3>Story-driven</h3>
+            <p>Emotional narratives that highlight the people and moments that matter.</p>
+          </div>
+          <div class="feature">
+            <h3>High production</h3>
+            <p>4K capture, professional audio, and cinematic grading.</p>
+          </div>
+          <div class="feature">
+            <h3>Fast turnaround</h3>
+            <p>Clean, reliable delivery and client collaboration every step of the way.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="video-card">
+        <video class="hero-video fade-in" autoplay loop playsinline controls>
+          <source src="images/71fbcd5e-78a0-41a3-821a-6ca227f0c35d.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </aside>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="work" class="portfolio">
+      <h2>Our Work</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb">
+            <img src="images/gallery9.jpg" alt="Wedding — The Hills">
+          </div>
+          <div class="card-body">
+            <strong>Weddings — Ceremonies</strong>
+            <p>A golden sunset ceremony with intimate portraits.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">
+            <img src="images/gallery1.jpg" alt="Commercial — Solace">
+          </div>
+          <div class="card-body">
+            <strong>Commercial — Short Ads, Product Shoots</strong>
+            <p> Short Films & Advertisement</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">
+            <img src="images/gallery17.jpg" alt="Documentary — Life">
+          </div>
+          <div class="card-body">
+            <strong>Birthdays — Special Occasions</strong>
+            <p>Capturing golden moments celebrating life.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+      <h2>Services</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <strong>Weddings</strong>
+          <p>Full-day coverage, highlight film, full ceremony edit.</p>
+        </div>
+        <div class="service-card">
+          <strong>Special Occasions</strong>
+          <p>Parties, Birthdays & Special Occasions.</p>
+        </div>
+        <div class="service-card">
+          <strong>Documentary</strong>
+          <p>Interview-led stories, archive integration.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div>
+        <strong class="contact-title">Let’s craft your film</strong>
+        <p>Tell us about your event and we’ll reply within 48 hours.</p>
+      </div>
+      <div class="contact-actions">
+        <a href="mailto:Surajdigwa1985@gmail.com" class="btn btn-primary hidden-email"><span>Surajdigwa1985@gmail.com</span></a>
+        <a href="tel:+447539826097" class="btn btn-primary">Call us</a>
+      </div>
+    </section>
+  </main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Golden Moment Films Logo" class="footer-logo">
+      <p class="footer-title">Golden Moment Films</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://www.facebook.com/goldenmomentsevents85" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <img src="images/facebook-icon.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/goldenmomentsfilms9779" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <img src="images/instargram-icon.png" alt="Instagram">
+      </a>
+    </div>
+
+    <p class="footer-copy">© <span id="year"></span> Golden Moment Films · All rights reserved</p>
+  </div>
+</footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const drawer = document.querySelector('.nav-drawer');
+      const closeBtn = document.querySelector('.close-btn');
+      const overlay = document.querySelector('.overlay');
+
+      if (!toggle || !drawer || !closeBtn || !overlay) return;
+
+      function openDrawer() {
+        drawer.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      toggle.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && drawer.classList.contains('active')) closeDrawer();
+      });
+    });
+  </script>
+
+
+<script>
+  // insert current year
+  const yEl = document.getElementById('year');
+  if (yEl) yEl.textContent = new Date().getFullYear();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    const overlay = document.querySelector('.overlay');
+    const closeBtn = document.querySelector('.nav-close');
+
+    if (!toggle || !nav || !overlay) return;
+
+    function openMenu() {
+      nav.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+      if (nav.classList.contains('active')) closeMenu(); else openMenu();
+    });
+
+    overlay.addEventListener('click', closeMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+    // close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('active')) closeMenu();
+    });
+  });
+</script>
+
+</body>
+</html>

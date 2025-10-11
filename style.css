@@ -1,0 +1,1173 @@
+
+  :root {
+  --gold: #b0882a;
+  --silver: #ddd;
+  --black: #000;
+
+
+  --gold: #d2b659;
+  --gold-dark: #b0882a;
+  --silver: #cfcfcf;
+  --white: #c4be1ca4;
+  --bg:  linear-gradient(180deg, #fffdf5 0%, #e8d188 40%, #fdf6d3 100%);
+  --max-w: 1200px;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #111;
+  line-height: 1.45;
+}
+/*MEDIA QUERIES*/
+/* ========================= */
+/* Desktop nav stays as-is   */
+/* ========================= */
+.nav-drawer {
+  display: flex;
+  gap: 18px;
+}
+
+/* Hamburger toggle */
+.menu-toggle {
+  display: none;
+}
+
+/* ===== Mobile & iPhone ===== */
+@media (max-width: 600px) {
+
+  /* Hamburger button */
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: var(--gold);
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 2001;
+  }
+
+  /* Nav links dropdown hidden initially */
+  .nav-drawer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    background: #111;
+    padding: 80px 0 40px;
+    align-items: center;
+    gap: 18px;
+    transition: top 0.4s ease;
+    z-index: 2000;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  /* Show dropdown when active */
+  .-drawer.active {
+    top: 0;
+  }
+
+  .nav-drawer a {
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav-drawer a:hover {
+    color: var(--white);
+  }
+
+
+  /* Center hero title */
+  .hero-title {
+    text-align: center;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-top: 20px;
+  }
+
+  /* Brand flex column for mobile */
+  .brand {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* Header */
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+/* Brand text layout beside logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Control text beside logo */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+/* Title beside logo */
+.brand-text h1 {
+  font-size: 1.9rem;
+  margin: 0;
+  color: #222;
+}
+
+/* Tagline styling inline under title */
+.tagline {
+  font-size: 1.8rem
+  larger;font-weight: 400;
+  color: #777;
+  margin-top: 3px;      /* tighter spacing */
+  letter-spacing: 0.5px;
+}
+
+/* Keep everything nicely aligned on smaller screens */
+@media (max-width: 600px) {
+  .brand {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .brand-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Logo */
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background: none;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Nav drawer */
+nav.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+nav.nav-drawer a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* Hover effect */
+nav.nav-drawer a:hover {
+  color: var(--gold);
+}
+
+/* Optional underline animation */
+nav.nav-drawer a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+nav.nav-drawer a:hover::after {
+  width: 100%;
+}
+
+/* Responsive mobile styling */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  nav.nav-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+
+/* Logo container */
+.logo {
+  width: 150px;        /* smaller logo */
+  height: 80px;
+  border-radius: 8px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 20px;
+  background: none; /* remove background if using actual image */
+  
+}
+
+/* Logo image */
+.logo img {
+  width: 100%;        /* fill the container width */
+  height: auto;       /* maintain aspect ratio */
+  object-fit: contain; 
+  display: block;
+  border-style: solid;
+  border-radius: 20px;
+  text-decoration-color: #b0882a;
+}
+
+
+.brand h3 { margin: 0; font-size: 18px; letter-spacing: 0.6px; }
+.tagline { font-size: 10px; color: rgba(250, 248, 241, 0.803); margin-bottom: 10px;
+
+}
+nav a { margin-left: 18px; text-decoration: none; color: #222; font-weight: 600; }
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 40px;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.hero-left { padding-right: 8px; }
+h2 { font-size: 42px; margin: 0 0 18px; }
+p.lead { font-size: 18px; color: #333; margin-bottom: 28px; }
+
+.cta-row { display: flex; gap: 14px; }
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  color: #111;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 2px solid goldenrod;
+  color: #100f0f;
+}
+/* Main hero title animation */
+.hero-title {
+  font-size: 3rem;              /* large, cinematic */
+  font-weight: 800;
+  color: #d4af37;               /* gold */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 3;                   /* start invisible */
+  transform: translateY(-20px); /* start slightly above */
+  transition: opacity 1s ease-out, transform 1s;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Shimmer effect (optional) */
+.hero-title.shimmer {
+  background: linear-gradient(90deg, #d4af37, #ffdc73, #d4af37);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+
+.hero-title-work {
+  font-size: 2rem;              /* large, cinematic */
+  font-weight: 800;
+  color: #b0882a;               /* gold text color */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity:100;                   
+  text-shadow: 1px 1px 3px rgba(2, 2, 2, 0.2);
+  text-align: center;
+  margin-right:  300px;
+}
+
+
+
+/* Fade-in triggered */
+.hero-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Shimmer keyframes */
+@keyframes shimmer {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* Video section */
+.video-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+  height: 320px;
+  background: #000;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Hero Video Styling */
+.video-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+  height: 320px;
+  background: #000;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* Fade-in animation for cinematic effect */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.05); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Optional darker overlay for contrast */
+.video-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  pointer-events: none;
+}
+
+/* Features */
+.features { display: flex; gap: 18px; margin-top: 34px; }
+.feature {
+  flex: 1;
+  background: linear-gradient(180deg, rgba(250, 250, 245, 0.9), rgba(180, 175, 105, 0.9));
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(238, 223, 176, 0.04);
+}
+.feature h3 { margin: 0 0 8px; }
+.feature p { margin: 0; color: #444; }
+
+/* Portfolio */
+.portfolio { margin-top: 44px; }
+.portfolio h2 { font-size: 28px; margin-bottom: 12px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.card {
+  background:  linear-gradient(180deg, rgba(250, 250, 245, 0.9), rgba(236, 232, 178, 0.9));
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(17,24,39,0.06);
+}
+.thumb img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.card-body {
+  padding: 12px;
+}
+.card-body p {
+  font-size: 13px;
+  color: #666;
+  margin: 4px 0 0;
+}
+
+/* Services */
+.services { margin-top: 34px; }
+.services h2 { font-size: 24px; margin-bottom: 12px; }
+.service-grid {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.service-card {
+  flex: 1;
+  min-width: 220px;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(250, 250, 245, 0.9), rgba(180, 175, 105, 0.9));
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+.service-card p {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Contact */
+.contact {
+  margin-top: 40px;
+  background: linear-gradient(90deg, rgba(212,175,55,0.08), rgba(207,207,207,0.03));
+  padding: 22px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact p { font-size: 13px; color: #444; margin: 0; }
+.contact-title { font-size: 16px; display: block; margin-bottom: 4px; }
+.contact-actions { display: flex; gap: 12px; align-items: center; }
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  padding: 22px 0;
+  color: #666;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { order: 2; }
+  .video-card { order: 1; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  h2 { font-size: 28px; }
+  .grid { grid-template-columns: 1fr; }
+  nav a { display: none; }
+}
+
+
+/* Work*/
+
+
+/* Golden Moment Gallery Text */
+.gmg {
+  border-style: double;            /* keeps the double line effect */
+  border-width: 6px;               /* makes the border thicker */
+  border-color: #eacd6b;           /* gold color */
+  border-radius: 50px;             /* rounded corners, adjust as needed */
+  padding: 12px 24px;              /* space inside the border */
+  display: inline-block;           /* shrink-wrap around text */
+  font-weight: 700;                /* optional: make text bolder */
+  color: #111;                     /* text color */
+  margin-bottom: 30px;             /* spacing from gallery */
+}
+.hero-title.shimmer{
+
+
+
+}
+.work-container h1 {
+  font-size: 2rem;               /* large and impactful */
+  font-weight: 400;              /* extra bold */
+  letter-spacing: 1.5px;         /* cinematic spacing */
+  text-transform: uppercase;     /* optional cinematic effect */
+  margin-bottom: 50px;           /* space from gallery */
+  
+  /* Gradient gold shimmer */
+  background: linear-gradient(90deg, #d4af37, #ffdc73, #d4af37);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Optional subtle shadow for depth */
+  text-shadow: 1px 1px 3px rgba(15, 13, 13, 0.2);
+
+  /* Smooth gradient animation */
+  animation: shimmer 3s linear infinite;
+  display: inline-block;
+  position: relative;
+}
+
+
+
+/* Hover effect - soft glow */
+.work-container h1:hover {
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+}
+
+/* Shimmer keyframes */
+@keyframes shimmer {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .work-container h1 {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+  .work-container h1::after {
+    width: 60px;
+  }  
+}
+
+/*sub text*/
+
+.gallery-subtext {
+  font-size: 1rem;
+  color: #555;
+  margin-top: -10px;
+  margin-bottom: 40px;
+  font-style: italic;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 3px rgba(212, 175, 55, 0.25); /* soft golden glow */
+}
+
+
+/* email visibility /* 
+
+/* Hidden email reveal with gold shimmer animation */
+.hidden-email {
+  position: relative;
+  display: inline-block;
+  border: 2px solid transparent;
+  color: transparent;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Hide the real email text initially */
+.hidden-email span {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* “Show Email” placeholder */
+.hidden-email::before {
+  content: "Show Email";
+  color: #111;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* Reveal effect with shimmer */
+.hidden-email:hover span {
+  visibility: visible;
+  opacity: 1;
+  background: linear-gradient(90deg, #d4af37, #938866, #231e0e);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerReveal 2s linear infinite;
+}
+
+/* Hide the placeholder on hover */
+.hidden-email:hover::before {
+  opacity: 0;
+}
+
+/* Optional gold border glow */
+.hidden-email:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+  transition: box-shadow 0.5s ease;
+}
+
+/* Shimmer keyframes */
+@keyframes shimmerReveal {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
+ /*footer nav*/ .site-footer {
+  background-color: #111;        /* dark cinematic background */
+  color: #d4af37;               /* gold text */
+  padding: 30px 24px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-links a img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s, filter 0.3s;
+  filter: brightness(0.8);
+}
+
+.footer-links a:hover img {
+  transform: scale(1.2);
+  filter: brightness(1);
+}
+
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* Gallery Items */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* Images */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Hover Effects */
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12),
+              0 0 12px rgba(212, 175, 55, 0.4); /* subtle gold glow */
+  border: 2px solid #d4af37; /* gold border */
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.05) saturate(1.1);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .work-container h1 {
+    font-size: 2rem;
+  }
+}
+   
+
+
+
+/* ===== Mobile Slide-Drawer Navbar ===== */
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  /* Hide desktop nav */
+  .nav-links { display: none; }
+
+  /* Show hamburger */
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--gold);
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 3001;
+    transition: transform 0.3s ease;
+  }
+  .menu-toggle:active { transform: scale(0.9); }
+
+  /* Drawer container */
+  .nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100%;
+    background: radial-gradient(circle at top right, #1a1a1a, #000);
+    box-shadow: -6px 0 30px rgba(212, 175, 55, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px 40px;
+    transition: right 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+    z-index: 3000;
+    border-left: 2px solid rgba(212, 175, 55, 0.4);
+  }
+
+  /* Glowing gold edge */
+  .nav-drawer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2px;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, #ffdc73, #d4af37, #ffdc73);
+    animation: glowEdge 3s linear infinite;
+  }
+  @keyframes glowEdge {
+    0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; }
+  }
+
+  /* Drawer active */
+  .nav-drawer.active { right: 0; }
+
+  /* Close button */
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 2rem;
+    color: var(--gold);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 3002;
+    transition: transform 0.3s ease;
+  }
+  .close-btn:hover { transform: rotate(90deg); }
+
+  /* Drawer links */
+  .nav-drawer a {
+    text-decoration: none;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 16px 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .nav-drawer a:hover {
+    color: var(--white);
+    transform: translateX(5px);
+  }
+
+  /* Background overlay */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+    z-index: 2500;
+  }
+  .overlay.active { opacity: 1; visibility: visible; }
+}
+
+/* --- Mobile view --- */
+@media (max-width: 820px) {
+  /* Hide desktop nav on mobile/tablet */
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--gold);
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 2001;
+  }
+
+  .nav-drawer {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background: #111;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    transition: right 0.4s ease;
+    z-index: 2000;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.4);
+    border-left: 1px solid rgba(212, 175, 55, 0.4);
+  }
+
+  .nav-drawer.active {
+    right: 0;
+    animation: glow 0.4s ease;
+  }
+
+  @keyframes glow {
+    from { box-shadow: -4px 0 0 rgba(212,175,55,0); }
+    to { box-shadow: -4px 0 25px rgba(212,175,55,0.4); }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--gold);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-drawer a {
+    text-decoration: none;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 18px 0;
+    transition: color 0.3s;
+  }
+
+  .nav-drawer a:hover {
+    color: var(--white);
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1500;
+  }
+
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+
+  /* Hide desktop nav on mobile */
+  .nav-links {
+    display: none;
+  }
+
+
+  /* === IMPORTANT VARIABLES (safe override) === */
+:root {
+  --gold: #b0882a;
+  --silver: #cfcfcf;
+  --bg-dark: #0b0b0b;
+  --white-ghost: rgba(250,248,241,0.9);
+}
+
+/* ---------- Header / Nav (desktop remains unchanged) ---------- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background:linear-gradient(180deg, #efefef 0%, #ede9dc 40%, #fdf6d3 100%);
+  
+}
+
+/* Desktop nav */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Links general */
+.nav-links :hover {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 6px 10px;
+}
+
+nav.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s;
+}
+/* Optional underline animation */
+nav.nav-links a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+nav.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Respo
+/* Hover effect */
+nav.nav-links a:hover {
+  color: var(--gold);
+}
+
+.btn btn-primary
+a:hover {
+  color: var(--gold);
+
+}
+
+/* Mobile toggle hidden on desktop */
+.menu-toggle { display: none; }
+
+/* nav-close (inside nav for mobile only) */
+.nav-close {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 1.6rem;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+}
+
+/* ---------- Mobile / iPhone styles ---------- */
+@media (max-width: 768px) {
+
+  /* show hamburger */
+  .menu-toggle {
+    display: block;
+    font-size: 1.9rem;
+    color: var(--gold);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 4100; /* above everything */
+  }
+
+  /* Hide the desktop inline nav (we use the same markup as a dropdown) */
+  /* BUT we will show the menu as a full-screen dropdown when active */
+  .nav-links {
+    display: flex;                /* still flex so a tags exist */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+    position: fixed;
+    top: -120vh;                  /* hidden above screen */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding-top: 90px;            /* leave room for brand / status */
+    background: linear-gradient(180deg, #070707 0%, #0e0e0e 100%);
+    transition: top 0.36s cubic-bezier(.2,.9,.2,1);
+    z-index: 4000;                /* above overlay */
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+
+  /* when active it slides down */
+  .nav-links.active {
+    top: 0;
+  }
+
+  /* mobile-only close button visible */
+  .nav-close { display: block; z-index: 4101; }
+
+  /* Ensure links are visible even if other rules tried to hide them */
+  header .nav-links a {
+    display: block !important;
+    color: var(--gold) !important;
+    font-size: 1.12rem;
+    padding: 12px 20px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  header .nav-links a.btn {
+    margin-top: 8px;
+    width: calc(100% - 40px);
+    max-width: 360px;
+  }
+
+  header .nav-links a:hover {
+    color: var(--white-ghost) !important;
+  }
+
+  /* overlay behind menu but below nav-links */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 6, 6, 0.6);
+    z-index: 3500;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s;
+  }
+  .overlay.active { opacity: 1; visibility: visible; }
+
+  /* Center brand and hero title on mobile */
+  .brand {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-title {
+    font-size: 1.9rem;
+    text-align: center;
+    color: var(--gold);
+    margin: 0;
+  }
+
+  /* If you had a rule like "nav a { display: none; }" earlier - this override forces visibility */
+  nav a { display: block !important; }
+}
+
+/* ---------- Footer styles (responsive) ---------- */
+.site-footer {
+  background: #0b0b0b;
+  color: var(--gold);
+  padding: 36px 20px;
+  margin-top: 60px;
+  border-top: 1px solid rgba(212,175,55,0.12);
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.footer-logo { width: 60px; height: 60px; object-fit: contain; border-radius: 10px; }
+.footer-title { color: #f7f7f7; margin: 0; font-weight: 600; font-size: 1rem; }
+.footer-links { display:flex; gap: 18px; align-items:center; justify-content:center; }
+.footer-links a img { width: 28px; height: 28px; filter: brightness(0.8); transition: transform .25s; }
+.footer-copy { color: #cfcfcf; font-size: 0.9rem; margin: 6px 0 0; }
+
+/* Mobile footer adjustments */
+@media (max-width: 600px) {
+  .site-footer { padding: 24px 14px; }
+  .footer-logo { width: 48px; height: 48px; }
+  .footer-links a img { width: 24px; height: 24px; }
+  .footer-copy { font-size: 0.78rem; line-height: 1.4; }
+}

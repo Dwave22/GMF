@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden Moment Films — Work</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Page-specific styling for the gallery */
+    .work-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      text-align: center;
+    }
+
+    .work-container h1 {
+      font-size: 2.6rem;
+      color: #111;
+      margin-bottom: 40px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.05) saturate(1.1);
+    }
+
+    @media (max-width: 600px) {
+      .work-container h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+<header>
+  <div class="brand">
+    <div class="logo">
+      <img src="logo.png" alt="Golden Moment Films Logo">
+    </div>
+    <div class="brand-text">
+      <h1 class="hero-title-work">Golden Moment Films</h1>
+    </div>
+  </div>
+
+
+
+  <!-- Mobile hamburger -->
+  <button class="menu-toggle" aria-label="Open Menu">☰</button>
+
+  <!-- Main nav (used for both desktop and mobile dropdown) -->
+  <nav class="nav-links" id="mainNav">
+    <!-- mobile-only close button (hidden on desktop) -->
+    <button class="nav-close" aria-label="Close Menu">✕</button>
+
+    <a href="index.html">Home</a>
+  
+    <a href="https://www.instagram.com/goldenmomentsfilms9779?utm_source=qr&igsh=MXg5NWYzcHVidHExeg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">DM us</a>
+  </nav>
+
+  <!-- Dark overlay behind mobile menu -->
+  <div class="overlay" aria-hidden="true"></div>
+</header>
+
+
+  <main class="work-container">
+    <h1 class="gmg">The Golden Moment Gallery </h1>
+    <p class="gallery-subtext">All photos are professionally shot and produced by Golden Moment Films. </p>
+
+    <div class="gallery-grid">
+      <!-- 20 image cards -->
+      <div class="gallery-item"><img src="images/gallery1.jpg" alt="Gallery Image 1"></div>
+      <div class="gallery-item"><img src="images/gallery2.jpg" alt="Gallery Image 2"></div>
+      <div class="gallery-item"><img src="images/gallery3.jpg" alt="Gallery Image 3"></div>
+      <div class="gallery-item"><img src="images/gallery4.jpg" alt="Gallery Image 4"></div>
+      <div class="gallery-item"><img src="images/gallery5.jpg" alt="Gallery Image 5"></div>
+      <div class="gallery-item"><img src="images/gallery6.jpg" alt="Gallery Image 6"></div>
+      <div class="gallery-item"><img src="images/gallery7.jpg" alt="Gallery Image 7"></div>
+      <div class="gallery-item"><img src="images/gallery8.jpg" alt="Gallery Image 8"></div>
+      <div class="gallery-item"><img src="images/gallery9.jpg" alt="Gallery Image 9"></div>
+      <div class="gallery-item"><img src="images/gallery10.jpg" alt="Gallery Image 10"></div>
+      <div class="gallery-item"><img src="images/gallery11.jpg" alt="Gallery Image 11"></div>
+      <div class="gallery-item"><img src="images/gallery12.jpg" alt="Gallery Image 12"></div>
+      <div class="gallery-item"><img src="images/gallery13.jpg" alt="Gallery Image 13"></div>
+      <div class="gallery-item"><img src="images/gallery14.jpg" alt="Gallery Image 14"></div>
+      <div class="gallery-item"><img src="images/gallery15.jpg" alt="Gallery Image 15"></div>
+      <div class="gallery-item"><img src="images/gallery16.jpg" alt="Gallery Image 16"></div>
+      <div class="gallery-item"><img src="images/gallery17.jpg" alt="Gallery Image 17"></div>
+      <div class="gallery-item"><img src="images/gallery18.jpg" alt="Gallery Image 18"></div>
+      <div class="gallery-item"><img src="images/gallery19.jpg" alt="Gallery Image 19"></div>
+      <div class="gallery-item"><img src="images/gallery20.jpg" alt="Gallery Image 20"></div>
+  
+    </div>
+  </main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Golden Moment Films Logo" class="footer-logo">
+      <p class="footer-title">Golden Moment Films</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://www.facebook.com/goldenmomentsevents85" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <img src="images/facebook-icon.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/goldenmomentsfilms9779" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <img src="images/instargram-icon.png" alt="Instagram">
+      </a>
+    </div>
+
+    <p class="footer-copy">© <span id="year"></span> Golden Moment Films · All rights reserved</p>
+  </div>
+</footer>
+
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const drawer = document.querySelector('.nav-drawer');
+      const closeBtn = document.querySelector('.close-btn');
+      const overlay = document.querySelector('.overlay');
+
+      if (!toggle || !drawer || !closeBtn || !overlay) return;
+
+      function openDrawer() {
+        drawer.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      toggle.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && drawer.classList.contains('active')) closeDrawer();
+      });
+    });
+  </script>
+
+  <script>
+  // insert current year
+  const yEl = document.getElementById('year');
+  if (yEl) yEl.textContent = new Date().getFullYear();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    const overlay = document.querySelector('.overlay');
+    const closeBtn = document.querySelector('.nav-close');
+
+    if (!toggle || !nav || !overlay) return;
+
+    function openMenu() {
+      nav.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+      if (nav.classList.contains('active')) closeMenu(); else openMenu();
+    });
+
+    overlay.addEventListener('click', closeMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+    // close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('active')) closeMenu();
+    });
+  });
+</script>
+
+</body>
+</html>
