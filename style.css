@@ -1270,3 +1270,10 @@ a:hover {
     line-height: 1.2;
   }
 }
+
+  @media only screen and (max-width: 767px) {
+  /* Hide Services link only on index page */
+  body.index-page nav a[href="#services"] {
+    display: none !important;
+  }
+}
