@@ -1255,59 +1255,24 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 767px) {.hero-title.shimmer{
-  margin-bottom: 200px;
-}
-
-/* ======================================= */
-/* iPhone layout fix: logo + hero title gap */
-/* ======================================= */
 @media only screen and (max-width: 767px) {
-
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.85); /* sleek translucent black */
-    backdrop-filter: blur(10px);   /* soft blur for a cinematic look */
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    z-index: 1000;
-    padding-top: env(safe-area-inset-top);
-  }
-
-  .brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 18px 0 10px; /* more vertical breathing room */
-  }
-
-  .brand .logo img {
-    width: 85px; /* slightly smaller for iPhone */
-    height: auto;
-    margin-bottom: 24px; /* ← adds space between logo and hero title */
-  }
-
-  .brand .hero-title {
-    margin-top: 0;
-    font-size: 2.1rem;
+  .hero-title {
+    display: block;
+    margin-top: 28px; /* adds space above the text */
     text-align: center;
+    font-size: 2.1rem;
     letter-spacing: 1px;
     line-height: 1.2;
   }
+}
 
-  .hero-title.shimmer h1 {
+@media only screen and (max-width: 767px) {
+  .hero-title.shimmer{
+    display: block;
+    margin-top: 32px; /* adds space above the text */
+    text-align: center;
     font-size: 2.1rem;
-  }
-
-  /* Optional: tidy shimmer spacing and animation on mobile */
-  .shimmer {
-    animation: shimmer 3s linear infinite;
-    background-size: 200% auto;
-  }
-
-  /* Add top margin to rest of page so content isn't hidden behind fixed header */
-  main, section.hero {
-    margin-top: 160px; /* adjusts based on header height */
+    letter-spacing: 1px;
+    line-height: 1.2;
   }
 }
