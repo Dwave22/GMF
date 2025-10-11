@@ -1171,3 +1171,93 @@ a:hover {
   .footer-links a img { width: 24px; height: 24px; }
   .footer-copy { font-size: 0.78rem; line-height: 1.4; }
 }
+
+
+/* ============================= */
+/* iPhone / Mobile Optimizations  */
+/* ============================= */
+@media (max-width: 600px) {
+
+  /* ----- Navbar: Brand (logo + title) ----- */
+  .brand {
+    flex-direction: row;          /* keep logo and title side-by-side */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;                    /* extra space between logo and title */
+  }
+
+  .brand-logo, .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .brand-text h1 {
+    font-size: 1.5rem;            /* readable title size */
+    margin: 0;
+  }
+
+  .tagline {
+    font-size: 0.9rem;            /* smaller tagline */
+    margin: 0;
+  }
+
+  /* Optional: stack for very small screens */
+  @media (max-width: 380px) {
+    .brand {
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand-text h1 { font-size: 1.3rem; }
+    .tagline { font-size: 0.8rem; }
+  }
+
+  /* ----- Footer ----- */
+  .site-footer {
+    padding: 32px 16px;            /* more breathing room */
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;            /* space between logo and links */
+  }
+
+  .footer-title {
+    font-size: 1rem;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;               /* wrap social links if needed */
+    gap: 14px;
+    margin-bottom: 12px;           /* space below links */
+    justify-content: center;
+  }
+
+  .footer-links a img {
+    width: 26px;
+    height: 26px;
+    filter: brightness(0.8);
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+
+  .footer-links a:hover img {
+    transform: scale(1.2);
+    filter: brightness(1);
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #cfcfcf;
+  }
+
+}
+
