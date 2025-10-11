@@ -38,6 +38,13 @@ color: #d4af37;
 margin-left: 200px;
 }
 
+
+.hero-title{
+
+  color: #d4af37;
+margin-left: 200px;
+}
+
 /* Hamburger toggle */
 .menu-toggle {
   display: none;
@@ -1180,5 +1187,55 @@ a:hover {
 }
 
 
+/* ============================= */
+/* iPhone / small device adjustments for work.html hero */
+/* ============================= */
+@media only screen and (max-width: 767px) {
 
+  /* Hide the hero title */
+  .work-hero-title {
+    display: none;
+  }
+
+  /* Center hero content vertically and reduce padding */
+  .work-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* prevents extra space at top */
+    padding: 20px 16px;          /* smaller padding for iPhone */
+    gap: 12px;                   /* reduce vertical spacing */
+  }
+
+  /* Adjust subtext / lead paragraph if present */
+  .work-hero p.lead {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 16px;
+    color: #333;
+  }
+
+  /* Adjust call-to-action buttons if present */
+  .work-hero .cta-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .work-hero .btn {
+    width: 80%;
+    max-width: 280px;
+    font-size: 0.95rem;
+    padding: 12px 0;
+  }
+
+  /* Video / image card adjustments */
+  .work-hero .video-card, 
+  .work-hero .hero-video {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    border-radius: 12px;
+  }
 }
