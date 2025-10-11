@@ -1,0 +1,54 @@
+/* ---------- Work Page Hero Title Animation ---------- */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* adjust as needed */
+  background-color: #000; /* black background for cinematic look */
+}
+
+.work-hero-title {
+  font-size: 3rem;                /* same cinematic size as index */
+  font-weight: 800;
+  color: #d4af37;                 /* gold */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0;                     /* start invisible */
+  transform: translateY(-20px);   /* start slightly above */
+  transition: opacity 1s ease-out, transform 1s;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  display: inline-block;
+  background: linear-gradient(90deg, #d4af37, #ffdc73, #d4af37);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite, fadeInUp 1s forwards;
+}
+
+/* Fade-in + slide up animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Responsive for iPhone and small screens */
+@media (max-width: 600px) {
+  .work-hero-title {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+}
+@media (max-width: 380px) {
+  .work-hero-title {
+    font-size: 1.9rem;
+    letter-spacing: 0.8px;
+  }
+}
