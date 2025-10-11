@@ -4,22 +4,77 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Golden Moment Films — Work</title>
-  <link rel="stylesheet" href="work.css">
+  <link rel="stylesheet" href="style.css">
 
+  <style>
+    /* Page-specific styling for the gallery */
+    .work-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      text-align: center;
+    }
+
+    .work-container h1 {
+      font-size: 2.6rem;
+      color: #111;
+      margin-bottom: 40px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.05) saturate(1.1);
+    }
+
+    @media (max-width: 600px) {
+      .work-container h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
     <!-- ===== HEADER ===== -->
 <header>
   <div class="brand">
     <div class="logo">
-      <img src="images/logo.png" alt="Golden Moment Films Logo">
+      <img src="logo.png" alt="Golden Moment Films Logo">
     </div>
     <div class="brand-text">
-      <h1 class="hero-title-work">Golden Moment Films</h1>
+     
     </div>
   </div>
-
+ <h1 class="hero-title-work">Golden Moment Films</h1>
 
 
   <!-- Mobile hamburger -->
@@ -74,7 +129,7 @@
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-brand">
-      <img src="images/logo.png" alt="Golden Moment Films Logo" class="footer-logo">
+      <img src="logo.png" alt="Golden Moment Films Logo" class="footer-logo">
       <p class="footer-title">Golden Moment Films</p>
     </div>
 
