@@ -1239,3 +1239,9 @@ a:hover {
     border-radius: 12px;
   }
 }
+
+  @media only screen and (max-width: 767px) {
+  .contact {
+    display: none;
+  }
+}
