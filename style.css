@@ -35,7 +35,7 @@ body {
 
 
 color: #d4af37;
-margin-left: 200px;
+margin-left: 225px;
 }
 
 
@@ -223,7 +223,7 @@ nav.nav-drawer a:hover {
 }
 
 /* Optional underline animation */
-nav.nav-drawer a::after {
+nav.nav-drawer a::after   {
   content: '';
   display: block;
   height: 2px;
@@ -1016,7 +1016,7 @@ nav.nav-links a {
   transition: color 0.3s;
 }
 /* Optional underline animation */
-nav.nav-links a::after {
+nav.nav-links a::after    {
   content: '';
   display: block;
   height: 2px;
@@ -1025,7 +1025,7 @@ nav.nav-links a::after {
   transition: width 0.3s;
 }
 
-nav.nav-links a:hover::after {
+nav.nav-links a:hover::after  {
   width: 100%;
 }
 
@@ -1270,10 +1270,59 @@ a:hover {
     line-height: 1.2;
   }
 }
-
-  @media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   /* Hide Services link only on index page */
   body.index-page nav a[href="#services"] {
     display: none !important;
+  }
+}}
+
+
+/* ===== Nav Links: Desktop & Mobile Unified ===== */
+nav.nav-links a,
+.nav-drawer a {
+  position: relative;       /* needed for underline pseudo-element */
+  text-decoration: none;
+  color: #222;              /* desktop default */
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect: color change only, no transform */
+nav.nav-links a:hover,
+.nav-drawer a:hover {
+  color: var(--gold);       /* desktop hover */
+}
+
+/* Optional underline animation (desktop & mobile) */
+nav.nav-links a::after,
+.nav-drawer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+nav.nav-links a:hover::after,
+.nav-drawer a:hover::after {
+  width: 100%;
+}
+
+/* Mobile specific tweaks */
+@media (max-width: 768px) {
+  .nav-drawer a {
+    color: var(--gold);       /* mobile default */
+    font-size: 1.2rem;
+    margin: 16px 0;
+    transition: color 0.3s ease; /* remove jump transform */
+  }
+
+  .nav-drawer a:hover {
+    color: var(--white);      /* hover color only, no translate */
+    transform: none;          /* prevents shift/jump */
   }
 }
