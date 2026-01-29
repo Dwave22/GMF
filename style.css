@@ -502,6 +502,15 @@ p.lead { font-size: 18px; color: #333; margin-bottom: 28px; }
   margin: 4px 0 0;
 }
 
+/* Center gallery text */
+.portfolio .card-body {
+  text-align: center;
+}
+.portfolio .card-body strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
 /* Services */
 .services { margin-top: 34px; }
 .services h2 { font-size: 24px; margin-bottom: 12px; }
@@ -1035,11 +1044,34 @@ footer {
   .nav-links a:hover { color: var(--white-ghost); background: transparent; transform: none; }
 }
 
-@media (min-width: 901px) {
-  /* desktop: ensure nav is inline and visible */
-  .nav-links { position: static; transform: none; height: auto; width: auto; padding: 0; flex-direction: row; background: none; }
-  .menu-toggle { display: none; }
-  .overlay { display: none; }
+/* Mobile nav alignment: match header padding so drawer content lines up with header */
+@media (max-width: 900px) {
+  .nav-links {
+    /* keep drawer width but align inner content with header padding */
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box !important;
+    gap: 14px !important;
+  }
+
+  /* On very small phones use full width but keep the same inner padding */
+  @media (max-width: 420px) {
+    .nav-links {
+      width: 100% !important;
+      left: 0 !important;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  }
+}
+
+/* Ensure nav links remain left-aligned inside the drawer while their container is aligned with header */
+@media (max-width: 900px) {
+  .nav-links a {
+    text-align: left !important;
+    width: 100% !important;
+    padding-left: 0 !important; /* we already pad the container */
+  }
 }
 
 /* -----------------------------
@@ -1140,4 +1172,68 @@ footer {
   }
 
   .overlay { display: block !important; }
+}
+
+/* ===== Desktop: tidy nav spacing and remove mobile artifacts ===== */
+@media (min-width: 901px) {
+  /* hide mobile-only controls */
+  .menu-toggle,
+  .nav-close,
+  .close-btn,
+  .overlay {
+    display: none !important;
+  }
+
+  /* ensure the primary nav is inline and right-aligned */
+  .nav-links {
+    display: flex !important;
+    position: static !important;
+    transform: none !important;
+    height: auto !important;
+    width: auto !important;
+    padding: 0 !important;
+    gap: 20px !important;
+    background: transparent !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+  }
+
+  /* normalize link spacing and remove extra margins that caused uneven gaps */
+  .nav-links a,
+  nav.nav-links a {
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    font-size: 1rem !important;
+    color: rgba(250,248,241,0.95) !important; /* desktop link color */
+    background: transparent !important;
+    border-radius: 8px !important;
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease !important;
+  }
+
+  /* subtle hover state for desktop only */
+  .nav-links a:hover,
+  nav.nav-links a:hover {
+    color: var(--gold) !important;
+    background: rgba(212,175,55,0.06) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* call-to-action button spacing (keep it visually distinct) */
+  .nav-links a.btn.btn-primary,
+  .nav-links .btn-primary {
+    padding: 10px 16px !important;
+    border-radius: 12px !important;
+  }
+
+  /* remove any accidental white background or border on buttons (fixes the white box around the X) */
+  button,
+  .nav-close,
+  .close-btn {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
 }
