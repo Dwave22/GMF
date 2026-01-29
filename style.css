@@ -502,15 +502,6 @@ p.lead { font-size: 18px; color: #333; margin-bottom: 28px; }
   margin: 4px 0 0;
 }
 
-/* Center gallery text */
-.portfolio .card-body {
-  text-align: center;
-}
-.portfolio .card-body strong {
-  display: block;
-  margin-bottom: 8px;
-}
-
 /* Services */
 .services { margin-top: 34px; }
 .services h2 { font-size: 24px; margin-bottom: 12px; }
@@ -828,30 +819,30 @@ footer {
   }
   .menu-toggle:active { transform: scale(0.9); }
 
-  /* Drawer container (now slides in from the LEFT) */
+  /* Drawer container */
   .nav-drawer {
     position: fixed;
     top: 0;
-    left: -100%;                /* start hidden to the left */
+    right: -100%;
     width: 75%;
     height: 100%;
-    background: radial-gradient(circle at top left, #1a1a1a, #000);
-    box-shadow: 6px 0 30px rgba(212, 175, 55, 0.3); /* shadow to the right for a left drawer */
+    background: radial-gradient(circle at top right, #1a1a1a, #000);
+    box-shadow: -6px 0 30px rgba(212, 175, 55, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 100px 20px 40px;
-    transition: left 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+    transition: right 0.5s cubic-bezier(0.7, 0, 0.3, 1);
     z-index: 3000;
-    border-right: 2px solid rgba(212, 175, 55, 0.4); /* gold edge on the right */
+    border-left: 2px solid rgba(212, 175, 55, 0.4);
   }
 
-  /* Glowing gold edge moved to the right side */
+  /* Glowing gold edge */
   .nav-drawer::before {
     content: '';
     position: absolute;
     top: 0;
-    right: -2px;
+    left: -2px;
     width: 2px;
     height: 100%;
     background: linear-gradient(180deg, #ffdc73, #d4af37, #ffdc73);
@@ -861,14 +852,14 @@ footer {
     0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; }
   }
 
-  /* Drawer active (now set left to 0 to slide in) */
-  .nav-drawer.active { left: 0; }
+  /* Drawer active */
+  .nav-drawer.active { right: 0; }
 
-  /* Close button positioned on the left side of the drawer */
+  /* Close button */
   .close-btn {
     position: absolute;
     top: 20px;
-    left: 24px; /* moved from right to left */
+    right: 24px;
     font-size: 2rem;
     color: var(--gold);
     background: none;
@@ -907,7 +898,7 @@ footer {
   .overlay.active { opacity: 1; visibility: visible; }
 }
 
-/* --- Mobile view (~820px) --- */
+/* --- Mobile view --- */
 @media (max-width: 820px) {
   /* Hide desktop nav on mobile/tablet */
   .nav-links {
@@ -929,33 +920,33 @@ footer {
     display: flex;
     position: fixed;
     top: 0;
-    left: -100%;              /* hidden to the left */
+    right: -100%;
     width: 70%;
     height: 100%;
     background: #111;
     flex-direction: column;
     align-items: center;
     padding: 80px 20px;
-    transition: left 0.4s ease;
+    transition: right 0.4s ease;
     z-index: 2000;
-    box-shadow: 6px 0 20px rgba(0, 0, 0, 0.4); /* shadow to the right */
-    border-right: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.4);
+    border-left: 1px solid rgba(212, 175, 55, 0.4);
   }
 
   .nav-drawer.active {
-    left: 0;
+    right: 0;
     animation: glow 0.4s ease;
   }
 
   @keyframes glow {
-    from { box-shadow: 4px 0 0 rgba(212,175,55,0); }
-    to { box-shadow: 4px 0 25px rgba(212,175,55,0.4); }
+    from { box-shadow: -4px 0 0 rgba(212,175,55,0); }
+    to { box-shadow: -4px 0 25px rgba(212,175,55,0.4); }
   }
 
   .close-btn {
     position: absolute;
     top: 20px;
-    left: 20px; /* moved to left */
+    right: 20px;
     font-size: 2rem;
     color: var(--gold);
     background: none;
@@ -994,7 +985,405 @@ footer {
 }
 
 
-/* Base/mobile-first nav transform (use left/negative X so drawer slides from left) */
+  /* Hide desktop nav on mobile */
+  .nav-links {
+    display: none;
+  }
+
+
+  /* === IMPORTANT VARIABLES (safe override) === */
+:root {
+  --gold: #b0882a;
+  --silver: #cfcfcf;
+  --bg-dark: #0b0b0b;
+  --white-ghost: rgba(250,248,241,0.9);
+}
+
+/* ---------- Header / Nav (desktop remains unchanged) ---------- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background:linear-gradient(180deg, #efefef 0%, #ede9dc 40%, #fdf6d3 100%);
+  
+}
+
+/* Desktop nav */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Links general */
+.nav-links :hover {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 6px 10px;
+}
+
+nav.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s;
+}
+/* Optional underline animation */
+nav.nav-links a::after    {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+nav.nav-links a:hover::after  {
+  width: 100%;
+}
+
+/* Hover effect */
+nav.nav-links a:hover {
+  color: var(--gold);
+}
+
+.btn btn-primary
+a:hover {
+  color: var(--gold);
+
+}
+
+/* Mobile toggle hidden on desktop */
+.menu-toggle { display: none; }
+
+/* nav-close (inside nav for mobile only) */
+.nav-close {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 1.6rem;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+}
+
+/* ---------- Mobile / iPhone styles ---------- */
+@media (max-width: 768px) {
+
+  /* show hamburger */
+  .menu-toggle {
+    display: block;
+    font-size: 1.9rem;
+    color: var(--gold);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 4100; /* above everything */
+  }
+
+  /* Hide the desktop inline nav (we use the same markup as a dropdown) */
+  /* BUT we will show the menu as a full-screen dropdown when active */
+  .nav-links {
+    display: block ;         /* still flex so a tags exist */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+    position: fixed;
+    top: -120vh;                  /* hidden above screen */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding-top: 40px;            /* leave room for brand / status */
+    background: linear-gradient(180deg, #070707 0%, #0e0e0e 100%);
+    transition: top 0.36s cubic-bezier(.2,.9,.2,1);
+    z-index: 4000;                /* above overlay */
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+
+  /* when active it slides down */
+  .nav-links.active {
+    top: 0;
+  }
+
+  /* mobile-only close button visible */
+  .nav-close { display: block; z-index: 4101; }
+
+  /* Ensure links are visible even if other rules tried to hide them */
+  header .nav-links a {
+    display: block !important;
+    color: var(--gold) !important;
+    font-size: 1.12rem;
+    padding: 12px 20px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  header .nav-links a.btn {
+    margin-top: 8px;
+    width: calc(100% - 40px);
+    max-width: 360px;
+  }
+
+  header .nav-links a:hover {
+    color: var(--white-ghost) !important;
+  }
+
+  /* overlay behind menu but below nav-links */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 6, 6, 0.6);
+    z-index: 3500;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s;
+  }
+  .overlay.active { opacity: 1; visibility: visible; }
+
+  /* Center brand and hero title on mobile */
+  .brand {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-title {
+    font-size: 1.9rem;
+    text-align: center;
+    color: var(--gold);
+    margin: 0;
+  }
+
+  /* If you had a rule like "nav a { display: none; }" earlier - this override forces visibility */
+  nav a { display: block !important; }
+}
+
+/* ---------- Footer styles (responsive) ---------- */
+.site-footer {
+  background: #0b0b0b;
+  color: var(--gold);
+  padding: 36px 20px;
+  margin-top: 60px;
+  border-top: 1px solid rgba(212,175,55,0.12);
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.footer-logo { width: 60px; height: 60px; object-fit: contain; border-radius: 10px; }
+.footer-title { color: #f7f7f7; margin: 0; font-weight: 600; font-size: 1rem; }
+.footer-links { display:flex; gap: 18px; align-items:center; justify-content:center; }
+.footer-links a img { width: 28px; height: 28px; filter: brightness(0.8); transition: transform .25s; }
+.footer-copy { color: #cfcfcf; font-size: 0.9rem; margin: 6px 0 0; }
+
+/* Mobile footer adjustments */
+@media (max-width: 600px) {
+  .site-footer { padding: 24px 14px; }
+  .footer-logo { width: 48px; height: 48px; }
+  .footer-links a img { width: 24px; height: 24px; }
+  .footer-copy { font-size: 0.78rem; line-height: 1.4; }
+}
+
+
+/* ============================= */
+/* iPhone / small device adjustments for work.html hero */
+/* ============================= */
+@media only screen and (max-width: 767px) {
+
+  /* Hide the hero title */
+  .work-hero-title {
+    display: none;
+  }
+
+  /* Center hero content vertically and reduce padding */
+  .work-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* prevents extra space at top */
+    padding: 20px 16px;          /* smaller padding for iPhone */
+    gap: 12px;                   /* reduce vertical spacing */
+  }
+
+  /* Adjust subtext / lead paragraph if present */
+  .work-hero p.lead {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 16px;
+    color: #333;
+  }
+
+  /* Adjust call-to-action buttons if present */
+  .work-hero .cta-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .work-hero .btn {
+    width: 80%;
+    max-width: 280px;
+    font-size: 0.95rem;
+    padding: 12px 0;
+  }
+
+  /* Video / image card adjustments */
+  .work-hero .video-card, 
+  .work-hero .hero-video {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    border-radius: 12px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .contact {
+    display: none;
+  }
+
+  .hero-title-work {
+    display: none;
+  }
+
+  .work-hero-title {
+    display: none;
+  }
+
+  /* Consolidated small-screen hero title rules (clean, non-empty) */
+  .hero-title {
+    display: block;
+    margin-top: 28px; /* adds space above the text */
+    text-align: center;
+    font-size: 2.1rem;
+    letter-spacing: 1px;
+    line-height: 1.2;
+  }
+}
+
+
+/* ===== Nav Links: Desktop & Mobile Unified ===== */
+nav.nav-links a,
+.nav-drawer a {
+  position: relative;       /* needed for underline pseudo-element */
+  text-decoration: none;
+  color: #222;              /* desktop default */
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect: color change only, no transform */
+nav.nav-links a:hover,
+.nav-drawer a:hover {
+  color: var(--gold);       /* desktop hover */
+}
+
+/* Optional underline animation (desktop & mobile) */
+nav.nav-links a::after,
+.nav-drawer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+nav.nav-links a:hover::after,
+.nav-drawer a:hover::after {
+  width: 100%;
+}
+
+/* Mobile specific tweaks */
+@media (max-width: 768px) {
+  .nav-drawer a {
+    color: var(--gold);       /* mobile default */
+    font-size: 1.2rem;
+    margin: 16px 0;
+    transition: color 0.3s ease; /* remove jump transform */
+  }
+
+  .nav-drawer a:hover {
+    color: var(--white);      /* hover color only, no translate */
+    transform: none;          /* prevents shift/jump */
+  }
+}
+/* =========================
+   GLOBAL RESET & SAFETY
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   BASE (MOBILE FIRST)
+========================= */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+/* ----- HEADER ----- */
+header {
+  position: relative;
+  padding: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo img {
+  max-width: 48px;
+}
+
+/* ----- NAVIGATION ----- */
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
 .nav-links {
   position: fixed;
   inset: 0;
@@ -1004,236 +1393,301 @@ footer {
   flex-direction: column;
   gap: 1.25rem;
   padding: 4rem 2rem;
-  transform: translateX(-100%); /* hidden to the left by default */
+  transform: translateX(100%);
   transition: transform 0.3s ease;
   z-index: 1000;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
 }
 
 .nav-links.active {
   transform: translateX(0);
 }
 
-/* Unified responsive nav behavior: change right -> left, and translateX positive -> negative */
-@media (max-width: 900px) {
-  /* show hamburger */
-  .menu-toggle { display: block; }
-
-  /* move primary nav into an off-canvas panel (left side) */
-  .nav-links {
-    position: fixed;
-    top: 0;
-    left: 0; /* anchored to left */
-    height: 100vh;
-    width: min(78%, 360px);
-    background: linear-gradient(180deg, #0b0b0b, #0f0f0f);
-    transform: translateX(-100%); /* hide off-canvas to the left */
-    padding: 100px 20px 40px;
-    flex-direction: column;
-    gap: 18px;
-    transition: transform 320ms cubic-bezier(.2,.9,.2,1);
-    z-index: 2400;
-  }
-
-  .nav-links.active { transform: translateX(0); }
-
-  .overlay { display: block; opacity: 0; visibility: hidden; transition: opacity 260ms ease; }
-  .overlay.active { opacity: 1; visibility: visible; }
-
-  /* make nav items large and tappable */
-  .nav-links a { color: var(--gold); font-size: 1.12rem; padding: 12px 16px; }
-  .nav-links a:hover { color: var(--white-ghost); background: transparent; transform: none; }
+.nav-close {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
 }
 
-/* Mobile nav alignment: match header padding so drawer content lines up with header */
-@media (max-width: 900px) {
-  .nav-links {
-    /* keep drawer width but align inner content with header padding */
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-    box-sizing: border-box !important;
-    gap: 14px !important;
+/* overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem 1rem;
+}
+
+.hero-left {
+  max-width: 100%;
+}
+
+.hero h2 {
+  font-size: 1.6rem;
+}
+
+.lead {
+  font-size: 1rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+/* =========================
+   PORTFOLIO
+========================= */
+
+.portfolio {
+  padding: 2.5rem 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services {
+  padding: 2.5rem 1rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+  padding: 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* =========================
+   TABLETS (≥ 600px)
+========================= */
+@media (min-width: 600px) {
+
+  .cta-row {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
-  /* On very small phones use full width but keep the same inner padding */
-  @media (max-width: 420px) {
-    .nav-links {
-      width: 100% !important;
-      left: 0 !important;
-      padding-left: 20px !important;
-      padding-right: 20px !important;
-    }
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-actions {
+    flex-direction: row;
   }
 }
 
-/* Ensure nav links remain left-aligned inside the drawer while their container is aligned with header */
-@media (max-width: 900px) {
-  .nav-links a {
-    text-align: left !important;
-    width: 100% !important;
-    padding-left: 0 !important; /* we already pad the container */
-  }
-}
+/* =========================
+   DESKTOP (≥ 900px)
+========================= */
+@media (min-width: 900px) {
 
-/* -----------------------------
-   Gold single-tone shimmer
-   ----------------------------- */
-.hero-title.shimmer {
-  /* single-tone gold shimmer: subtle variation in brightness */
-  background: linear-gradient(90deg, rgba(212,175,55,0.98) 0%, rgba(212,175,55,0.85) 50%, rgba(212,175,55,0.98) 100%);
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: shimmerGold 3.5s linear infinite;
-  text-shadow: none;
-}
-
-@keyframes shimmerGold {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Make shimmer subtle when reduced motion is preferred */
-@media (prefers-reduced-motion: reduce) {
-  .hero-title.shimmer { animation: none; }
-  .nav-links, .nav-links.active { transition: none; }
-}
-
-/* Ensure hero title remains crisp and legible across breakpoints */
-@media (max-width: 600px) {
-  .hero-title { font-size: 2.1rem; }
-  .brand-text h1 { font-size: 1rem; }
-}
-
-/* Fix: ensure off-canvas mobile nav uses .nav-links and .nav-close (override earlier conflicting rules) */
-@media (max-width: 900px) {
-  .nav-links {
-    display: flex !important;               /* ensure links are visible on mobile */
-    position: fixed !important;
-    top: 0 !important;
-    left: -100% !important;                 /* hidden off-canvas to the left */
-    transform: translateX(-0%);             /* keep transform for compat but left controls position */
-    height: 100vh !important;
-    width: min(78%, 360px) !important;
-    background: linear-gradient(180deg, #0b0b0b, #0f0f0f) !important;
-    padding: 100px 20px 40px !important;
-    flex-direction: column !important;
-    gap: 18px !important;
-    transition: left 320ms cubic-bezier(.2,.9,.2,1) !important; /* slide by changing left */
-    z-index: 2400 !important;
-    box-shadow: 6px 0 30px rgba(212,175,55,0.2) !important;
-    border-right: 1px solid rgba(212,175,55,0.12) !important;
-  }
-
-  /* When active, move into view */
-  .nav-links.active {
-    left: 0 !important;
-    transform: translateX(0) !important;
-  }
-
-  /* glowing edge on the right of the left-side drawer */
-  .nav-links::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -2px;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, #ffdc73, #d4af37, #ffdc73);
-    animation: glowEdge 3s linear infinite;
-    pointer-events: none;
-  }
-
-  /* Ensure close button inside the nav is visible and on the left */
-  .nav-close {
-    display: block !important;
-    position: absolute !important;
-    top: 18px !important;
-    left: 18px !important; /* left-side close for left drawer */
-    font-size: 1.9rem !important;
-    color: var(--gold) !important;
-    background: none !important;
-    border: none !important;
-    cursor: pointer !important;
-    z-index: 2501 !important;
-  }
-
-  /* Make sure links are large and tappable */
-  .nav-links a {
-    display: block !important;
-    color: var(--gold) !important;
-    font-size: 1.12rem !important;
-    padding: 12px 20px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    text-align: left !important;
-  }
-
-  .overlay { display: block !important; }
-}
-
-/* ===== Desktop: tidy nav spacing and remove mobile artifacts ===== */
-@media (min-width: 901px) {
-  /* hide mobile-only controls */
   .menu-toggle,
   .nav-close,
-  .close-btn,
   .overlay {
-    display: none !important;
+    display: none;
   }
 
-  /* ensure the primary nav is inline and right-aligned */
   .nav-links {
-    display: flex !important;
-    position: static !important;
-    transform: none !important;
-    height: auto !important;
-    width: auto !important;
-    padding: 0 !important;
-    gap: 20px !important;
-    background: transparent !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
+    position: static;
+    transform: none;
+    background: none;
+    flex-direction: row;
+    padding: 0;
+    gap: 1.5rem;
   }
 
-  /* normalize link spacing and remove extra margins that caused uneven gaps */
-  .nav-links a,
-  nav.nav-links a {
-    display: inline-block !important;
-    margin: 0 !important;
-    padding: 8px 12px !important;
-    font-size: 1rem !important;
-    color: rgba(250,248,241,0.95) !important; /* desktop link color */
-    background: transparent !important;
-    border-radius: 8px !important;
-    transition: background 160ms ease, color 160ms ease, transform 160ms ease !important;
+  .nav-links a {
+    color: inherit;
   }
 
-  /* subtle hover state for desktop only */
-  .nav-links a:hover,
-  nav.nav-links a:hover {
-    color: var(--gold) !important;
-    background: rgba(212,175,55,0.06) !important;
-    transform: translateY(-1px) !important;
+  .hero {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
   }
 
-  /* call-to-action button spacing (keep it visually distinct) */
-  .nav-links a.btn.btn-primary,
-  .nav-links .btn-primary {
-    padding: 10px 16px !important;
-    border-radius: 12px !important;
+  .hero-left {
+    flex: 1;
   }
 
-  /* remove any accidental white background or border on buttons (fixes the white box around the X) */
-  button,
-  .nav-close,
-  .close-btn {
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: inherit !important;
+  .video-card {
+    flex: 1;
+  }
+
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Modern gradient border utility (reusable) */
+.gradient-border {
+  /* outer container that draws the gradient border */
+  --gradient-border-size: 4px;               /* adjust border thickness */
+  --gradient-colors: linear-gradient(90deg, #d4af37, #ffd76b, #e6c95a);
+
+  position: relative;
+  border-radius: 16px;
+  border: var(--gradient-border-size) solid transparent;
+
+  /* Two-layer background: inner layer (content background), outer layer is the gradient used as a border */
+  background-image: var(--bg), var(--gradient-colors);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+
+  /* create a little breathing room between content and the decorative border */
+  padding: 10px; /* when applying to elements that already have internal padding, reduce this */
+
+  transition: box-shadow 240ms ease, transform 200ms ease;
+}
+
+/* Hover state: subtle lift + gold glow */
+.gradient-border:hover {
+  box-shadow: 0 14px 30px rgba(212, 175, 55, 0.18), 0 6px 18px rgba(0,0,0,0.12);
+  transform: translateY(-3px);
+}
+
+/* Slightly thinner variant for small cards or thumbnails */
+.gradient-border--thin {
+  --gradient-border-size: 2px;
+  border-radius: 12px;
+  padding: 6px;
+}
+
+/* Usage helpers: keep inner element radiused and full width/height */
+.gradient-border > * {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: calc(16px - var(--gradient-border-size));
+}
+
+/* Example: apply to existing patterns without modifying markup much */
+/* Add the class name in your HTML like: <div class="video-card gradient-border"> ... </div> */
+.video-card.gradient-border {
+  /* video-card already has border-radius: 16px; this keeps things consistent */
+  padding: 6px; /* reduce padding so video fits nicely */
+}
+
+.gallery-item.gradient-border {
+  padding: 6px; /* allow the gradient edge to show without changing the image size too much */
+}
+
+/* Accessibility: reduce motion if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-border,
+  .gradient-border:hover {
+    transition: none;
+    transform: none;
+    box-shadow: none;
   }
 }
